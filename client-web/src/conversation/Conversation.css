@@ -1,0 +1,11 @@
+.Conversation {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.Conversation__box--content {
+  flex: 1;
+  overflow: auto;
+  min-height: 100px;
+}
