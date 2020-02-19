@@ -1,4 +1,5 @@
 import React from 'react';
+import './Conversation.css';
 import ConversationHeader from './ConversationHeader';
 import MessageComposer from './MessageComposer';
 import MessageFeed from './MessageFeed';
@@ -8,14 +9,14 @@ const sendMessage = () => {
 }
 
 const Conversation = ({ title, messages = [] }) => (
-  <div className="Conversation">
-    <div className="Conversation__box  Conversation__box--header">
+  <div className="conversation">
+    <div className="conversation__box  conversation__box--header">
       <ConversationHeader title={title} />
     </div>
-    <div className="Conversation__box Conversation__box--content">
+    <div className="conversation__box conversation__box--content">
     <MessageFeed messages={messages} recipient='bob' />
     </div>
-    <div className="Conversation__box Conversation__box--footer">
+    <div className="conversation__box conversation__box--footer">
     <MessageComposer onSubmit={sendMessage} />
     </div>
   </div>

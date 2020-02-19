@@ -1,24 +1,25 @@
-.Message {
-  margin: 4px 0;
+.message {
+  margin: 0 0 4px;
 }
 
-.Message--sent {
+.message--sent {
   text-align: right;
 }
-.Message--sent .Message__content {
+.message--sent .message__content {
   background: #52bf90;
   color: #fff;
 }
 
-.Message__author {
+.message__author {
   text-transform: uppercase;
   font-size: 0.7rem;
 }
 
-.Message__content {
+.message__content {
   display: inline-block;
   margin: 0;
   padding: 10px 14px;
   border-radius: 9px;
   background: #f0f0f0;
+  white-space: pre-line;
 }

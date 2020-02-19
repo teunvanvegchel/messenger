@@ -8,18 +8,16 @@ const getType = (author, receipient) =>
     : MESSAGE_RECEIVED;
 
 const MessageFeed = ({ messages = [], recipient }) => (
-  <div className="MessageFeed">
-    <div>
-      {
-        messages.map(message => (
-          <Message
-            content={message.content}
-            author={message.author}
-            type={getType(message.author, recipient)}
-          />
-        ))
-      }
-    </div>
+  <div className="message-feed">
+    {
+      messages.map(message => (
+        <Message
+          content={message.content}
+          author={message.author}
+          type={getType(message.author, recipient)}
+        />
+      ))
+    }
   </div>
 );
 

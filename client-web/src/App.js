@@ -1,24 +1,34 @@
 import React from 'react';
-import Conversation from './conversation/Conversation';
-import './conversation/Conversation.css';
+import Messenger from './messenger/Messenger';
 
-const messages = [
+const conversations = [
   {
-    author: 'alice',
-    content: 'Hi!',
+    title: 'Alice',
+    messages: [
+      {
+        author: 'alice',
+        content: 'Hi!',
+      },
+      {
+        author: 'alice',
+        content: 'Whats up?',
+      },
+      {
+        author: 'bob',
+        content: 'Hey!'
+      },
+    ]
   },
   {
-    author: 'alice',
-    content: 'Whats up?',
+    title: 'Charlie'
   },
   {
-    author: 'bob',
-    content: 'Hey!'
-  },
+    title: 'Dave'
+  }
 ];
 
 const App = () => (
-  <Conversation title="Alice" messages={messages} />
+  <Messenger conversations={conversations} activeConversation={conversations[0]}  />
 );
 
 export default App;

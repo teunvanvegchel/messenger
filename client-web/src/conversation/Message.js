@@ -5,8 +5,8 @@ export const MESSAGE_SENT = 'sent';
 export const MESSAGE_RECEIVED = 'received';
 
 const Message = ({ content, type }) => (
-  <div className={`Message Message--${type}`}>
-    <p className="Message__content">
+  <div className={`message message--${type}`}>
+    <p className="message__content">
       {content}
     </p>
   </div>

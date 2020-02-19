@@ -2,15 +2,15 @@ import React from 'react';
 import './MessageComposer.css';
 
 const MessageComposer = ({ onSubmit }) => (
-  <form className="MessageComposer">
+  <form className="message-composer">
     <input
       placeholder="Type a message..."
-      className="MessageComposer__input"
+      className="message-composer__input"
     />
     <button
       type="submit"
       onClick={onSubmit}
-      className="MessageComposer__button"
+      className="message-composer__button"
     >
       Send
     </button>

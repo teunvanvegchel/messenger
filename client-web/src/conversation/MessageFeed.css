@@ -1,6 +1,4 @@
-.MessageFeed {
-  display: flex;
-  flex-direction: column-reverse;
+.message-feed {
   overflow: auto;
   height: 100%;
 }
