@@ -1,8 +1,11 @@
 import React from 'react';
+import { loadConversations } from './actions';
 import Messenger from './messenger/Messenger';
+import store from './store';
 
 const conversations = [
   {
+    id: '1',
     title: 'Alice',
     messages: [
       {
@@ -20,15 +23,19 @@ const conversations = [
     ]
   },
   {
+    id: '2',
     title: 'Charlie'
   },
   {
+    id: '3',
     title: 'Dave'
   }
 ];
 
+store.dispatch(loadConversations(conversations));
+
 const App = () => (
-  <Messenger conversations={conversations} activeConversation={conversations[0]}  />
+  <Messenger activeConversation={conversations[0]} />
 );
 
 export default App;

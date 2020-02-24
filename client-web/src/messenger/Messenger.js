@@ -3,14 +3,14 @@ import Conversation from '../conversation/Conversation';
 import ConversationList from './ConversationList';
 import './Messenger.css';
 
-const Messenger = ({conversations, activeConversation}) => (
+const Messenger = () => (
   <div className="messenger">
     <div className="messenger__sidebar">
       <h1 className="messenger__sidebar__header">Chats</h1>
-      <ConversationList conversations={conversations} selectedConversation={activeConversation} />
+      <ConversationList />
     </div>
     <div className="messenger__main">
-      <Conversation title={activeConversation.title} messages={activeConversation.messages} />
+      <Conversation />
     </div>
   </div>
 );

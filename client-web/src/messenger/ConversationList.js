@@ -1,28 +1,22 @@
 import classnames from 'classnames';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as actions from '../actions';
 import './ConversationList.css';
 
-const getLastMessage = ({ messages = [] }) => {
-  if (messages.length < 1) {
-    return '';
-  }
+const ConversationList = () => {
+  const conversations = useSelector(state => state.conversations);
+  const activeConversation = useSelector(state => state.activeConversation);
+  const dispatch = useDispatch()
 
   return (
-    <span className="conversation-list__item__preview">
-      {messages[messages.length - 1].content}
-    </span>
-  )
-}
-
-const ConversationList = ({ conversations, selectedConversation }) => (
-  <>
     <ul className="conversation-list">
       {conversations.map(conversation => (
         <li
-          onClick={() => alert(1)}
+          onClick={() => dispatch(actions.openConversation(conversation.id))}
           className={classnames({
             'conversation-list__item': true,
-            'conversation-list__item-selected': selectedConversation === conversation
+            'conversation-list__item-selected': activeConversation === conversation.id
           })}
         >
           <span className="conversation-list__item__avatar">
@@ -33,16 +27,22 @@ const ConversationList = ({ conversations, selectedConversation }) => (
               {conversation.title}
             </div>
             <div className="conversation-list__item__details">
-              {getLastMessage(conversation)}
-              <span className="conversation-list__item__date">
-                yesterday
-              </span>
+              {conversation.messages && (
+                <>
+                  <span className="conversation-list__item__preview">
+                    {conversation.messages[conversation.messages.length - 1].content}
+                  </span>
+                  <span className="conversation-list__item__date">
+                    yesterday
+                </span>
+                </>
+              )}
             </div>
           </div>
         </li>
       ))}
     </ul>
-  </>
-)
+  );
+};
 
 export default ConversationList;
