@@ -1,3 +1,5 @@
+import notificationService from './NotificationService';
+
 export const loadConversations = conversations => ({
   type: 'LOAD_CONVERSATIONS',
   conversations
@@ -8,6 +10,16 @@ export const openConversation = id => ({
   id,
 });
 
-export const sendMessage = () => ({
-  type: 'SEND_MESSAGE',
-});
+export const sendMessage = (message) => {
+  notificationService.sendMessage(
+    JSON.stringify({
+      type: 'SEND_MESSAGE',
+      content: message
+    })
+  );
+
+  return {
+    type: 'SEND_MESSAGE',
+    content: message,
+  };
+};

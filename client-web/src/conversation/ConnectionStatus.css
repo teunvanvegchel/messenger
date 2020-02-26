@@ -1,0 +1,14 @@
+.connection_status--connecting,
+.connection_status--disconnected {
+  color: #fff;
+  padding: 15px;
+  margin: 0 -15px;
+}
+
+.connection_status--connecting {
+  background: orange;
+}
+
+.connection_status--disconnected {
+  background: red;
+}

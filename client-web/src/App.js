@@ -1,6 +1,7 @@
 import React from 'react';
 import { loadConversations } from './actions';
 import Messenger from './messenger/Messenger';
+import notificationService from './NotificationService';
 import store from './store';
 
 const conversations = [
@@ -33,6 +34,8 @@ const conversations = [
 ];
 
 store.dispatch(loadConversations(conversations));
+
+notificationService.start(store.dispatch);
 
 const App = () => (
   <Messenger activeConversation={conversations[0]} />
