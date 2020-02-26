@@ -13,7 +13,7 @@ export const openConversation = id => ({
 export const sendMessage = (message) => {
   notificationService.sendMessage(
     JSON.stringify({
-      type: 'SEND_MESSAGE',
+      type: 'MESSAGE_CREATED',
       content: message
     })
   );

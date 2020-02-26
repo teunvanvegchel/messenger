@@ -27,7 +27,7 @@ const ConversationList = () => {
               {conversation.title}
             </div>
             <div className="conversation-list__item__details">
-              {conversation.messages && (
+              {!!(conversation.messages && conversation.messages.length) && (
                 <>
                   <span className="conversation-list__item__preview">
                     {conversation.messages[conversation.messages.length - 1].content}

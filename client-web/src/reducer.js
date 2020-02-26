@@ -35,6 +35,21 @@ export default (state = initialState, action) => {
         ...state,
         notificationsState: 'CONNECTING'
       }
+    case 'MESSAGE_RECEIVED':
+      return {
+        ...state,
+        conversations: state.conversations.map(conversation => {
+          return {
+            ...conversation,
+            messages:
+              []
+                .concat(conversation.messages)
+                .concat({
+                  content: action.content
+                }),
+          };
+        })
+      };
     default:
       return state;
   }

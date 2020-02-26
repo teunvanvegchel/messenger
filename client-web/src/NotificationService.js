@@ -17,7 +17,6 @@ export class NotificationService {
 
   onConnected = () => {
     this.dispatch({ type: 'NOTIFICATIONS_CONNECTED' });
-    this.websocket.send("hi")
   };
 
   onDisconnected = () => {
@@ -26,7 +25,13 @@ export class NotificationService {
   }
 
   onMessage = (event) => {
-    this.dispatch({ type: 'NOTIFICATION_RECEIVED', data: event.data });
+    const data = JSON.parse(event.data);
+
+    switch (data.type) {
+      case 'MESSAGE_CREATED':
+        this.dispatch({ type: 'MESSAGE_RECEIVED', content: data.content });
+        return;
+    }
   }
 
   sendMessage = (message) => {
