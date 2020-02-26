@@ -9,7 +9,7 @@ import MessageFeed from './MessageFeed';
 const Conversation = () => {
   const conversation = useSelector(state =>
     state.conversations.find(conversation =>
-      conversation.id == state.activeConversation));
+      conversation.id === state.activeConversation));
   const dispatch = useDispatch()
 
   return (

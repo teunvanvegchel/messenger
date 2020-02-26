@@ -6,7 +6,7 @@ const MessageComposer = ({ sendMessage }) => {
 
   const onSubmit = event => {
     event.preventDefault();
-    if (content.trim() != '') {
+    if (content.trim() !== '') {
       sendMessage(content);
       setContent('');
     }
